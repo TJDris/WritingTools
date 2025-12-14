@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tone Analyzer</title>
+  <link rel="stylesheet" href="style.css"> <!-- existing CSS -->
+</head>
+<body>
+
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="basic-summarizer.html">Basic Summarizer</a>
+  <a href="tone.html">Tone Rewriter</a>
+  <a href="pro.html">Pro</a>
+  <a href="translator.html">Translator</a>
+</nav>
+
+<div class="container">
+  <h2>Tone Analyzer / Rewriter</h2>
+
+  <textarea id="toneInput" placeholder="Paste your text here..."></textarea>
+
+  <button onclick="rewriteTone('formal')">Make it Formal</button>
+  <button onclick="rewriteTone('friendly')">Make it Friendly</button>
+  <button onclick="rewriteTone('concise')">Make it Concise</button>
+
+  <div id="toneResult"></div>
+</div>
+
+<script>
+function rewriteTone(tone) {
+  let text = document.getElementById('toneInput').value;
+  if (!text) { alert("Please enter text"); return; }
+
+  let output = text;
+
+  if (tone === 'formal') {
+    output = output.replace(/\bhi\b/gi,'Hello')
+                   .replace(/\bthanks a lot\b/gi,'Thank you')
+                   .replace(/\breally\b/gi,'truly')
+                   .replace(/\bvery\b/gi,'extremely');
+  } 
+  else if (tone === 'friendly') {
+    output = output.replace(/\bHello\b/gi,'Hi')
+                   .replace(/\bThank you\b/gi,'Thanks a lot')
+                   .replace(/\btruly\b/gi,'really')
+                   .replace(/\bextremely\b/gi,'very');
+  } 
+  else if (tone === 'concise') {
+    output = output.replace(/\breally\b/gi,'')
+                   .replace(/\bvery\b/gi,'')
+                   .replace(/\bjust\b/gi,'');
+  }
+
+  document.getElementById('toneResult').innerText = output;
+}
+</script>
+
+<!-- ===== Styling for this page (matches summary page) ===== -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+  }
+
+  nav {
+    background: #4f46e5;
+    padding: 12px;
+  }
+
+  nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 220px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #4338ca;
+  }
+
+  #toneResult {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f5f9;
+    border-left: 4px solid #4f46e5;
+    border-radius: 4px;
+    white-space: pre-wrap;
+  }
+
+    nav a.active {
+  background: #4338ca;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+</style>
+
+    <script>
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+</body>
+</html>

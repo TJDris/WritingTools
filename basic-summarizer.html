@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-71QMBG8PQJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-71QMBG8PQJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2905561871341444"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <title>Basic Text Summarizer</title>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="basic-summarizer.html">Basic Summarizer</a>
+  <a href="tone.html">Tone Rewriter</a>
+  <a href="pro.html">Pro</a>
+  <a href="translator.html">Translator</a>
+</nav>
+
+<div class="container">
+  <h1>Basic Text Summarizer</h1>
+  <p>Paste any long text below and get a short summary.</p>
+
+  <textarea id="inputText" placeholder="Paste text here..."></textarea>
+
+ <button onclick="summarizeText()">Summarize</button>
+<button onclick="clearText()" style="margin-left:10px; background:#6b7280;">Clear</button>
+
+
+  <h2>Summary</h2>
+<div id="summaryOutput"></div>
+
+<button onclick="copyBasic()">Copy Summary</button> 
+
+
+<!-- Unlock Pro Features -->
+<button onclick="unlockPro()">Unlock Pro Features</button>
+
+<!-- Pro Features (hidden initially) -->
+<div id="proFeatures" style="display:none; margin-top:20px; padding:15px; background:#e0e7ff; border-radius:8px;">
+  <h3>Pro Features</h3>
+  <button onclick="highlightKeywords()">Highlight Keywords</button>
+  <button onclick="countWords()">Word & Character Count</button>
+  <button onclick="showReadability()">Readability Score</button>
+  <button onclick="formatText()">Clean / Format Text</button>
+  <button onclick="downloadSummary()">Download Summary</button>
+  
+  <!-- Area for Pro outputs -->
+  <div id="proOutput" style="margin-top:10px; padding:10px; background:#f9fafb; border-radius:5px;"></div>
+</div>
+
+
+    <div class="seo-text">
+  <h2>Summarize Any Text Instantly</h2>
+  <p>
+    The Basic Text Summarizer allows you to quickly condense long articles, reports, or essays into shorter, digestible summaries. Save time while keeping the most important information.
+  </p>
+
+  <h3>Who Can Use This</h3>
+  <p>
+    Perfect for students, researchers, content creators, and busy professionals who want to understand long texts without reading everything.
+  </p>
+
+  <h3>Boost Your Productivity</h3>
+  <p>
+    Our tool helps you focus on what matters most. For even more advanced text analysis and professional summaries, consider upgrading to our premium features soon.
+  </p>
+</div>
+
+
+<script>
+function summarizeText() {
+  let text = document.getElementById('inputText').value;
+
+  if (!text.trim()) {
+    document.getElementById('summaryOutput').innerText = "Please paste some text first.";
+    return;
+  }
+
+  let sentences = text.split('.');
+  let summary = sentences.slice(0, 3).join('. ') + '.';
+
+  document.getElementById('summaryOutput').innerText = summary;
+}
+
+function copyBasic() {
+  const text = document.getElementById('summaryOutput').innerText;
+
+  if (!text.trim()) {
+    alert("Nothing to copy yet!");
+    return;
+  }
+
+  navigator.clipboard.writeText(text);
+  alert("Summary copied to clipboard!");
+}
+
+function clearText() {
+  document.getElementById('inputText').value = '';
+  document.getElementById('summaryOutput').innerText = '';
+}
+</script>
+
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+  }
+
+  nav {
+    background: #4f46e5;
+    padding: 12px;
+  }
+
+  nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 220px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #4338ca;
+  }
+
+  #summaryOutput {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f5f9;
+    border-left: 4px solid #4f46e5;
+    border-radius: 4px;
+    white-space: pre-wrap;
+  }
+
+    <style>
+.seo-text {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.seo-text h2 {
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.seo-text h3 {
+  color: #4f46e5;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.seo-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+    nav a.active {
+  background: #4338ca;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+</style>
+
+<!-- ...Your HTML content above... -->
+
+<script>
+// ---------- FREE FEATURE ----------
+function summarizeText() {
+  let text = document.getElementById("inputText").value;
+  if(!text.trim()) {
+    alert("Please enter some text to summarize.");
+    return;
+  }
+  let sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
+  let summary = sentences.slice(0,3).join(" ");
+  document.getElementById("summaryOutput").innerText = summary;
+}
+
+// ---------- PRO UNLOCK ----------
+function unlockPro() {
+  let password = prompt("Enter Pro password:");
+  if (password === "PRO123") {  // Change this to your own password
+    document.getElementById("proFeatures").style.display = "block";
+    alert("Pro features unlocked!");
+  } else {
+    alert("Incorrect password!");
+  }
+}
+
+// ---------- PRO FEATURES ----------
+function highlightKeywords() { /* ... */ }
+function countWords() { /* ... */ }
+function showReadability() { /* ... */ }
+function formatText() { /* ... */ }
+function downloadSummary() { /* ... */ }
+</script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2905561871341444"
+     crossorigin="anonymous"></script>
+
+    <script>
+  // Highlight the current page link
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.background = '#4338ca'; // Darker shade
+      link.style.padding = '8px 12px';
+      link.style.borderRadius = '6px';
+    }
+  });
+</script>
+
+    <script>
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+</body>
+</html>
